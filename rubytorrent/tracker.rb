@@ -11,9 +11,12 @@
 ## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 ## General Public License (in the file COPYING) for more details.
 
+path = File.expand_path __FILE__
+path = File.dirname(path)
+
 require 'open-uri'
 require 'timeout'
-require "rubytorrent"
+require "#{path}/../rubytorrent"
 
 module RubyTorrent
 

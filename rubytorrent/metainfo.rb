@@ -11,7 +11,11 @@
 ## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 ## General Public License (in the file COPYING) for more details.
 
-require "rubytorrent/typedstruct"
+path = File.expand_path __FILE__
+path = File.dirname(path)
+
+
+require "#{path}/typedstruct"
 require 'uri'
 require 'open-uri'
 require 'digest/sha1'

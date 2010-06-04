@@ -13,7 +13,11 @@
 
 require 'socket'
 require 'thread'
-require "rubytorrent/message"
+
+path = File.expand_path __FILE__
+path = File.dirname(path)
+
+require "#{path}/message"
 
 module RubyTorrent
 

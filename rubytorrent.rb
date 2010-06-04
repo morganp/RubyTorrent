@@ -11,12 +11,17 @@
 ## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 ## General Public License (in the file COPYING) for more details.
 
-require 'rubytorrent/util'
-require 'rubytorrent/bencoding'
-require 'rubytorrent/metainfo'
-require 'rubytorrent/tracker'
-require 'rubytorrent/package'
-require 'rubytorrent/server'
+#This is currently filesystem based not gem
+path = File.expand_path __FILE__
+path = File.dirname(path)
+
+
+require "#{path}/rubytorrent/util"
+require "#{path}/rubytorrent/bencoding"
+require "#{path}/rubytorrent/metainfo"
+require "#{path}/rubytorrent/tracker"
+require "#{path}/rubytorrent/package"
+require "#{path}/rubytorrent/server"
 
 require "socket"
 Socket.do_not_reverse_lookup = true

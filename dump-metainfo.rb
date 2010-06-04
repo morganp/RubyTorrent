@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 ## dump-metainfo.rb -- command-line .torrent dumper
 ## Copyright 2004 William Morgan.
 ##
@@ -32,6 +33,10 @@ EOS
 EOS
 end
 
+def metainfo_filename(mi)
+ return mi.info.name
+end
+
 def dump_metainfo(mi)
     <<EOS
 #{dump_metainfoinfo(mi.info).chomp}
@@ -46,7 +51,13 @@ end
 if ARGV.length == 1
   fn = ARGV[0]
   begin
-    puts dump_metainfo(RubyTorrent::MetaInfo.from_location(fn))
+    metadata = RubyTorrent::MetaInfo.from_location(fn)
+    #puts dump_metainfo(metadata)
+    puts ""
+    puts metadata.info.name
+    puts ""
+
+
   rescue RubyTorrent::MetaInfoFormatError, RubyTorrent::BEncodingError => e
     puts "Can't parse #{fn}: maybe not a .torrent file?"
   end
